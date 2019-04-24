@@ -18,15 +18,20 @@
     ],
     "directories": {
       "buildResources": "assets"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "KushalKatta"
     }
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/KushalKatta/rpk_electron.git"
-  }
+    "type": "git",
+    "url": "https://github.com/KushalKatta/rpk_electron.git"
+  },
   "dependencies": {
     "antd": "^3.16.5",
     "electron-is-dev": "^1.1.0",
+    "electron-updater": "^4.0.6",
     "graphql-request": "^1.8.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -41,6 +46,7 @@
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "preelectron-pack": "yarn build",
     "electron-pack": "build --mac --win -p always",
+    "release": "build",
     "postinstall": "electron-builder install-app-deps"
   },
   "eslintConfig": {
