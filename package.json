@@ -1,8 +1,33 @@
 {
-  "name": "rpk",
+  "name": "RPK",
+  "description": "RPK Backend",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Kushal Katta",
+    "email": "kushalkatta16@gmail.com",
+    "url": "http://katta.xyz"
+  },
+  "homepage": "./",
+  "main": "public/electron.js",
+  "build": {
+    "appId": "com.katta.rpk",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/KushalKatta/rpk_electron.git"
+  }
   "dependencies": {
+    "antd": "^3.16.5",
+    "electron-is-dev": "^1.1.0",
+    "graphql-request": "^1.8.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0"
@@ -11,7 +36,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "react-start": "BROWSER=none react-scripts start",
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "build --mac --win -p always",
+    "postinstall": "electron-builder install-app-deps"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,5 +57,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "electron": "^4.1.4",
+    "electron-builder": "^20.39.0",
+    "wait-on": "^3.2.0"
   }
 }
