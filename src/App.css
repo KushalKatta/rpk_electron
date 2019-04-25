@@ -21,6 +21,12 @@
   color: white;
 }
 
+.stickRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 .centerAlign {
   display: flex;
   align-items: center;
